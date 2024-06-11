@@ -1,0 +1,7 @@
+include:
+  - project: 'ci-templates'
+    ref: 'main'
+    file: 'build-template.yaml'
+  - project: 'ci-templates'
+    ref: 'main'
+    file: 'deploy-template.yaml'
