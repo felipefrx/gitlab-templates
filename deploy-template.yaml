@@ -1,20 +1,3 @@
-#deploy:app_dev:
-#  needs:
-#    - image:build_dev
-#  variables:
-#    IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
-#  image: alpine/k8s:1.21.13
-#  before_script:
-#    - echo "${KUBECONFIG_DEV}" | base64 -d > /config.yaml
-#    - export KUBECONFIG=/config.yaml
-#    - sed -i 's,image-trocar,'$IMAGE_NAME',' manifestos_dev/deployment.yaml
-#  script:
-#    - kubectl apply -f ./manifestos_dev
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == 'main' && $CI_COMMIT_TAG == null
-#  tags:
-#    - gita 
-
 deploy:app_dev:
   needs:
     - image:build_dev
